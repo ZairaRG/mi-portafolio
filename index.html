@@ -1,0 +1,1208 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zaira Itzel Reyes Gutierrez — Portafolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;0,900;1,400;1,700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* ══════════════════════════════════════════════════════
+       VARIABLES — Psicología del color pastel
+       Rosa pastel  → creatividad, calidez, accesibilidad
+       Lavanda      → intuición, datos, innovación
+       Durazno      → energía amigable, positivismo
+       Blanco roto  → limpieza, profesionalismo, apertura
+    ══════════════════════════════════════════════════════ */
+    :root {
+      --bg:           #FDF5F7;
+      --bg2:          #FFF8FA;
+      --white:        #FFFFFF;
+      --pink-l:       #FAD4E0;
+      --pink-m:       #F0A3BE;
+      --pink-d:       #C9607F;
+      --lav-l:        #EDE5F8;
+      --lav-m:        #C5B0E8;
+      --lav-d:        #8B6DBF;
+      --peach-l:      #FFE8D6;
+      --peach-m:      #FFCBA0;
+      --peach-d:      #D47A3A;
+      --mint-l:       #DFF4EE;
+      --mint-m:       #A3D9C8;
+      --mint-d:       #3A9B7C;
+      --text:         #2C1A25;
+      --text-m:       #7A5568;
+      --text-l:       #B08898;
+      --border:       rgba(200,130,160,0.18);
+      --border-lav:   rgba(139,109,191,0.18);
+      --shadow:       0 4px 24px rgba(180,90,130,0.08);
+      --shadow-hover: 0 12px 40px rgba(180,90,130,0.16);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      overflow-x: hidden;
+      line-height: 1.75;
+    }
+    ::selection { background: var(--pink-l); color: var(--pink-d); }
+
+    /* ── Soft blob backgrounds ─────────────────────────── */
+    body::before {
+      content: '';
+      position: fixed; top: -15vh; right: -10vw;
+      width: 55vw; height: 55vw;
+      background: radial-gradient(circle, rgba(240,163,190,0.22) 0%, transparent 65%);
+      border-radius: 50%;
+      animation: blobdrift 20s ease-in-out infinite alternate;
+      pointer-events: none; z-index: 0;
+    }
+    body::after {
+      content: '';
+      position: fixed; bottom: -10vh; left: -8vw;
+      width: 45vw; height: 45vw;
+      background: radial-gradient(circle, rgba(197,176,232,0.18) 0%, transparent 65%);
+      border-radius: 50%;
+      animation: blobdrift 26s ease-in-out infinite alternate-reverse;
+      pointer-events: none; z-index: 0;
+    }
+    @keyframes blobdrift {
+      from { transform: translate(0,0) scale(1); }
+      to   { transform: translate(3vw, 5vh) scale(1.08); }
+    }
+
+    /* ── Nav ──────────────────────────────────────────── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1.1rem 6vw;
+      background: rgba(253,245,247,0.88);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid var(--border);
+      transition: padding 0.3s;
+    }
+    .nav-logo {
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      font-size: 1.25rem;
+      color: var(--text);
+      letter-spacing: -0.01em;
+    }
+    .nav-logo span { color: var(--pink-d); font-style: italic; }
+    .nav-links { display: flex; gap: 2.2rem; list-style: none; }
+    .nav-links a {
+      color: var(--text-m);
+      text-decoration: none;
+      font-size: 0.82rem;
+      font-weight: 600;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--pink-d); }
+    .nav-cta {
+      background: var(--pink-d) !important;
+      color: #fff !important;
+      padding: 0.38rem 1.1rem;
+      border-radius: 50px;
+      transition: opacity 0.2s !important;
+    }
+    .nav-cta:hover { opacity: 0.85; }
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
+    .hamburger span { width: 22px; height: 2px; background: var(--text); border-radius: 2px; transition: 0.3s; }
+    .mobile-nav { display: none; }
+
+    /* ── Shared section layout ────────────────────────── */
+    .wrap {
+      position: relative; z-index: 1;
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 0 6vw;
+    }
+    section { padding: 6rem 0; }
+    .label {
+      display: inline-flex; align-items: center; gap: 0.45rem;
+      font-size: 0.72rem; font-weight: 700;
+      letter-spacing: 0.16em; text-transform: uppercase;
+      color: var(--pink-d);
+      margin-bottom: 0.7rem;
+    }
+    .label::before { content: '—'; opacity: 0.6; }
+    .heading {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 4.5vw, 3.2rem);
+      font-weight: 700;
+      line-height: 1.1;
+      color: var(--text);
+      margin-bottom: 0.8rem;
+    }
+    .heading em { color: var(--pink-d); font-style: italic; }
+    .heading .data { color: var(--lav-d); }
+    .subhead {
+      color: var(--text-m);
+      font-size: 1rem;
+      max-width: 560px;
+      margin-bottom: 2.5rem;
+    }
+    .divider {
+      width: 40px; height: 3px;
+      background: linear-gradient(90deg, var(--pink-m), var(--lav-m));
+      border-radius: 2px;
+      margin-bottom: 3rem;
+    }
+
+    /* ── Fade-up reveal ───────────────────────────────── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity 0.65s ease, transform 0.65s ease;
+    }
+    .reveal.on { opacity: 1; transform: translateY(0); }
+
+    /* ═══════════════════════ HERO ══════════════════════ */
+    #hero {
+      min-height: 100vh;
+      display: flex; align-items: center;
+      padding-top: 5rem;
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      align-items: center;
+      gap: 5rem;
+      width: 100%;
+    }
+
+    /* ── dual pill badge ──────────────────────────────── */
+    .hero-pill {
+      display: inline-flex; align-items: center;
+      gap: 0; background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 50px;
+      overflow: hidden;
+      margin-bottom: 2rem;
+      box-shadow: var(--shadow);
+      animation: fadeUp 0.8s ease both;
+    }
+    .hero-pill-side {
+      display: flex; align-items: center; gap: 0.4rem;
+      padding: 0.4rem 1rem;
+      font-size: 0.72rem; font-weight: 700;
+      letter-spacing: 0.07em; text-transform: uppercase;
+    }
+    .hero-pill-side .dot { width: 6px; height: 6px; border-radius: 50%; }
+    .hp-left { color: var(--pink-d); }
+    .hp-left .dot { background: var(--pink-d); }
+    .hp-sep { width: 1px; background: var(--border); align-self: stretch; }
+    .hp-right { color: var(--lav-d); }
+    .hp-right .dot { background: var(--lav-d); }
+
+    .hero-name {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.6rem, 5.5vw, 4.8rem);
+      font-weight: 900;
+      line-height: 1.0;
+      letter-spacing: -0.02em;
+      color: var(--text);
+      margin-bottom: 0.4rem;
+      animation: fadeUp 0.9s 0.1s ease both;
+    }
+    .hero-name span { color: var(--pink-d); font-style: italic; display: block; }
+    .hero-role {
+      font-size: 0.95rem; font-weight: 600;
+      color: var(--text-m); letter-spacing: 0.03em;
+      margin-bottom: 1.6rem;
+      animation: fadeUp 1s 0.2s ease both;
+    }
+    .hero-role strong { color: var(--text); }
+
+    /* dual focus bar */
+    .hero-focus {
+      display: flex; gap: 0;
+      border-radius: 14px; overflow: hidden;
+      border: 1px solid var(--border);
+      margin-bottom: 2.2rem;
+      animation: fadeUp 1s 0.3s ease both;
+    }
+    .focus-half {
+      flex: 1;
+      padding: 1rem 1.2rem;
+    }
+    .focus-half.mk { background: rgba(242,210,220,0.45); }
+    .focus-half.ds { background: rgba(197,176,232,0.35); border-left: 1px solid var(--border); }
+    .focus-tag {
+      font-size: 0.65rem; font-weight: 700;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      margin-bottom: 0.3rem;
+    }
+    .focus-half.mk .focus-tag { color: var(--pink-d); }
+    .focus-half.ds .focus-tag { color: var(--lav-d); }
+    .focus-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem; font-weight: 700;
+      color: var(--text); margin-bottom: 0.25rem;
+      line-height: 1.2;
+    }
+    .focus-desc { font-size: 0.76rem; color: var(--text-m); }
+
+    .hero-btns {
+      display: flex; gap: 0.8rem; flex-wrap: wrap;
+      animation: fadeUp 1s 0.4s ease both;
+    }
+    .btn-pk {
+      background: var(--pink-d);
+      color: #fff;
+      padding: 0.75rem 1.8rem;
+      border-radius: 50px;
+      font-weight: 700; font-size: 0.88rem;
+      text-decoration: none;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .btn-pk:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(201,96,127,0.35); }
+    .btn-out {
+      border: 1.5px solid var(--lav-m);
+      color: var(--lav-d);
+      padding: 0.73rem 1.8rem;
+      border-radius: 50px;
+      font-weight: 700; font-size: 0.88rem;
+      text-decoration: none;
+      background: transparent;
+      transition: transform 0.2s, background 0.2s;
+    }
+    .btn-out:hover { transform: translateY(-2px); background: var(--lav-l); }
+
+    .hero-stats {
+      display: flex; gap: 2rem;
+      margin-top: 2rem;
+      animation: fadeUp 1s 0.5s ease both;
+    }
+    .stat-n {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.9rem; font-weight: 900;
+      color: var(--pink-d); line-height: 1;
+    }
+    .stat-n.lav { color: var(--lav-d); }
+    .stat-l { font-size: 0.72rem; font-weight: 600; color: var(--text-l); }
+
+    /* ── Hero visual ──────────────────────────────────── */
+    .hero-visual {
+      display: flex; justify-content: center; align-items: center;
+      animation: fadeUp 1s 0.55s ease both;
+    }
+    .photo-outer {
+      position: relative; width: 340px; height: 400px;
+    }
+    .photo-card {
+      width: 100%; height: 100%;
+      border-radius: 28px;
+      background: var(--white);
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      gap: 0.5rem;
+    }
+    .photo-card img { width:100%; height:100%; object-fit:cover; display:block;  }
+    .photo-ph {
+      text-align: center; color: var(--text-l);
+      font-size: 0.78rem; padding: 1.5rem;
+    }
+    .photo-ph svg { opacity: 0.35; margin-bottom: 0.6rem; }
+    .photo-ph p { font-size: 0.72rem; opacity: 0.6; }
+    /* decorative blobs */
+    .deco-blob {
+      position: absolute;
+      border-radius: 50%;
+      pointer-events: none;
+    }
+    .blob-pk {
+      width: 110px; height: 110px;
+      background: var(--pink-l);
+      bottom: -18px; left: -22px;
+      z-index: -1;
+    }
+    .blob-lv {
+      width: 80px; height: 80px;
+      background: var(--lav-l);
+      top: -16px; right: -16px;
+      z-index: -1;
+    }
+    /* floating tags */
+    .ftag {
+      position: absolute;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 0.5rem 0.9rem;
+      font-size: 0.72rem; font-weight: 700;
+      white-space: nowrap;
+      box-shadow: var(--shadow);
+    }
+    .ftag.t1 { top: 10%; right: -22%; color: var(--pink-d); border-color: var(--pink-l); animation: float 4s ease-in-out infinite; }
+    .ftag.t2 { bottom: 18%; right: -18%; color: var(--lav-d); border-color: var(--lav-l); animation: float 5s 1s ease-in-out infinite; }
+    .ftag.t3 { bottom: 5%; left: -18%; color: var(--mint-d); border-color: var(--mint-l); animation: float 4.5s 2s ease-in-out infinite; }
+    @keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-8px)} }
+    @keyframes fadeUp { from{opacity:0;transform:translateY(22px)} to{opacity:1;transform:translateY(0)} }
+
+    /* ═══════════════════════ ABOUT ═════════════════════ */
+    #about { background: var(--bg2); }
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.3fr;
+      gap: 5rem; align-items: start;
+    }
+    .about-img {
+      aspect-ratio: 3/4;
+      border-radius: 24px;
+      background: var(--white);
+      border: 1px solid var(--border);
+      overflow: hidden;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      color: var(--text-l); font-size: 0.78rem;
+      box-shadow: var(--shadow);
+      position: relative;
+    }
+    .about-img img { width:100%;height:100%;object-fit:cover;display:block; object-position: center top; }
+    .about-img::after {
+      content: '';
+      position: absolute; bottom: 0; left: 0; right: 0;
+      height: 30%;
+      background: linear-gradient(to top, var(--pink-l), transparent);
+      pointer-events: none;
+    }
+    .about-img-hint { font-size: 0.72rem; opacity: 0.5; margin-top: 0.3rem; }
+    .about-body p { color: var(--text-m); font-size: 0.95rem; margin-bottom: 1rem; }
+    .about-body p strong { color: var(--text); }
+    /* dual expertise pills */
+    .expertise-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.8rem;
+      margin: 1.6rem 0;
+    }
+    .exp-card {
+      border-radius: 16px;
+      padding: 1rem 1.2rem;
+      border: 1px solid;
+    }
+    .exp-card.mk {
+      background: rgba(242,210,220,0.3);
+      border-color: var(--pink-l);
+    }
+    .exp-card.ds {
+      background: rgba(197,176,232,0.2);
+      border-color: var(--lav-l);
+    }
+    .exp-card-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 0.95rem; font-weight: 700;
+      margin-bottom: 0.3rem;
+    }
+    .exp-card.mk .exp-card-title { color: var(--pink-d); }
+    .exp-card.ds .exp-card-title { color: var(--lav-d); }
+    .exp-card p { font-size: 0.78rem; color: var(--text-m); margin: 0; }
+    .about-traits {
+      display: flex; flex-wrap: wrap; gap: 0.5rem;
+    }
+    .trait {
+      background: var(--white);
+      border: 1px solid var(--border);
+      color: var(--text-m);
+      padding: 0.28rem 0.8rem;
+      border-radius: 50px;
+      font-size: 0.75rem; font-weight: 600;
+    }
+
+    /* ═══════════════════════ STACK ════════════════════ */
+    #stack .stack-tabs {
+      display: flex; gap: 0.5rem;
+      margin-bottom: 2rem;
+    }
+    .tab-btn {
+      padding: 0.45rem 1.1rem;
+      border-radius: 50px;
+      font-size: 0.78rem; font-weight: 700;
+      border: 1.5px solid var(--border);
+      background: transparent;
+      cursor: pointer;
+      transition: all 0.2s;
+      color: var(--text-m);
+    }
+    .tab-btn.active.mk { background: var(--pink-d); border-color: var(--pink-d); color: #fff; }
+    .tab-btn.active.ds { background: var(--lav-d); border-color: var(--lav-d); color: #fff; }
+    .tab-btn.active.dev { background: var(--mint-d); border-color: var(--mint-d); color: #fff; }
+    .tab-btn:not(.active):hover { border-color: var(--pink-m); }
+    .stack-panel { display: none; }
+    .stack-panel.active { display: grid; grid-template-columns: repeat(auto-fill, minmax(110px,1fr)); gap: 0.9rem; }
+    .sk-item {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 1.1rem 0.6rem;
+      text-align: center;
+      cursor: default;
+      transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+    }
+    .sk-item:hover { transform: translateY(-3px); box-shadow: var(--shadow-hover); }
+    .sk-item:hover.mk-sk { border-color: var(--pink-m); }
+    .sk-item:hover.ds-sk { border-color: var(--lav-m); }
+    .sk-item:hover.dev-sk { border-color: var(--mint-m); }
+    .sk-icon { font-size: 1.5rem; margin-bottom: 0.35rem; }
+    .sk-name { font-size: 0.7rem; font-weight: 700; color: var(--text-m); }
+
+    /* ═══════════════════════ PROJECTS ═════════════════ */
+    .proj-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 1.4rem;
+    }
+    .proj-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      overflow: hidden;
+      display: flex; flex-direction: column;
+      transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s;
+      box-shadow: var(--shadow);
+    }
+    .proj-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-hover);
+      border-color: var(--pink-m);
+    }
+    .proj-card.exp-card-lav:hover { border-color: var(--lav-m); }
+    .proj-img-area {
+      width: 100%; aspect-ratio: 16/9;
+      background: var(--bg);
+      border-bottom: 1px solid var(--border);
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      gap: 0.4rem; color: var(--text-l);
+      position: relative; overflow: hidden;
+    }
+    .proj-img-area {
+      background: #f5f5f5; /* fondo suave */
+    }
+    .proj-img-area img { width:100%;height:100%;object-fit:contain;display:block }
+    .proj-img-layer {
+      position: absolute; inset: 0;
+      opacity: 0.12;
+    }
+    .proj-emoji { font-size: 2rem; opacity: 0.45; position: relative; z-index:1; }
+    .proj-img-hint { font-size: 0.67rem; opacity: 0.4; font-weight: 700; letter-spacing:0.07em; text-transform:uppercase; position: relative; z-index:1; }
+    .proj-body { padding: 1.3rem 1.4rem; display: flex; flex-direction: column; flex: 1; }
+    .proj-cat {
+      display: inline-block;
+      font-size: 0.68rem; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      padding: 0.2rem 0.65rem; border-radius: 50px;
+      margin-bottom: 0.6rem;
+    }
+    .cat-pk { background: var(--pink-l); color: var(--pink-d); }
+    .cat-lv { background: var(--lav-l); color: var(--lav-d); }
+    .cat-mint { background: var(--mint-l); color: var(--mint-d); }
+    .cat-peach { background: var(--peach-l); color: var(--peach-d); }
+    .proj-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.05rem; font-weight: 700;
+      color: var(--text); margin-bottom: 0.5rem; line-height: 1.25;
+    }
+    .proj-desc { font-size: 0.83rem; color: var(--text-m); line-height: 1.65; flex:1; margin-bottom: 1rem; }
+    .proj-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+    .proj-tag {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      color: var(--text-l);
+      padding: 0.18rem 0.65rem;
+      border-radius: 50px;
+      font-size: 0.7rem; font-weight: 600;
+    }
+
+    /* ═══════════════════════ EXPERIENCE ═══════════════ */
+    #experience { background: var(--bg2); }
+    .exp-timeline {
+      position: relative;
+      padding-left: 2.2rem;
+    }
+    .exp-timeline::before {
+      content: '';
+      position: absolute; left: 0; top: 8px; bottom: 8px;
+      width: 2px;
+      background: linear-gradient(to bottom, var(--pink-m), var(--lav-m), transparent);
+      border-radius: 2px;
+    }
+    .tl-item { position: relative; margin-bottom: 2rem; }
+    .tl-dot {
+      position: absolute;
+      left: -2.55rem; top: 6px;
+      width: 13px; height: 13px;
+      border-radius: 50%;
+      border: 2px solid var(--bg2);
+    }
+    .dot-pk { background: var(--pink-d); }
+    .dot-lv { background: var(--lav-d); }
+    .tl-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 1.3rem 1.5rem;
+      box-shadow: var(--shadow);
+      transition: border-color 0.2s;
+    }
+    .tl-card:hover { border-color: var(--pink-m); }
+    .tl-card.lav:hover { border-color: var(--lav-m); }
+    .tl-period {
+      font-size: 0.7rem; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      margin-bottom: 0.25rem;
+    }
+    .period-pk { color: var(--pink-d); }
+    .period-lv { color: var(--lav-d); }
+    .tl-role {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.05rem; font-weight: 700;
+      color: var(--text); margin-bottom: 0.15rem;
+    }
+    .tl-org { font-size: 0.85rem; font-weight: 600; color: var(--text-m); margin-bottom: 0.8rem; }
+    .tl-desc { font-size: 0.87rem; color: var(--text-m); line-height: 1.65; }
+    .tl-desc strong { color: var(--text); }
+    .tl-techs { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.9rem; }
+    .tl-tech {
+      padding: 0.2rem 0.65rem; border-radius: 50px;
+      font-size: 0.7rem; font-weight: 700; border: 1px solid;
+    }
+    .tech-pk { background: var(--pink-l); border-color: var(--pink-l); color: var(--pink-d); }
+    .tech-lv { background: var(--lav-l); border-color: var(--lav-l); color: var(--lav-d); }
+    .tech-mt { background: var(--mint-l); border-color: var(--mint-l); color: var(--mint-d); }
+
+    /* ═══════════════════════ CONTACT ══════════════════ */
+    .contact-wrap {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 28px;
+      padding: 4rem;
+      text-align: center;
+      box-shadow: var(--shadow);
+      position: relative;
+      overflow: hidden;
+    }
+    .contact-wrap::before {
+      content: '';
+      position: absolute; top: -60%; left: 50%;
+      transform: translateX(-50%);
+      width: 70%; height: 260px;
+      background: radial-gradient(ellipse, rgba(240,163,190,0.12), transparent 70%);
+      pointer-events: none;
+    }
+    .contact-wrap::after {
+      content: '';
+      position: absolute; bottom: -40%; right: -10%;
+      width: 300px; height: 300px;
+      background: radial-gradient(circle, rgba(197,176,232,0.1), transparent 70%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+    .contact-wrap h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.6rem, 3.5vw, 2.6rem);
+      font-weight: 900;
+      color: var(--text); margin-bottom: 0.7rem;
+    }
+    .contact-wrap h2 em { color: var(--pink-d); font-style: italic; }
+    .contact-wrap p { color: var(--text-m); max-width: 460px; margin: 0 auto 2.5rem; font-size: 0.95rem; }
+    .contact-links { display: flex; justify-content: center; gap: 0.8rem; flex-wrap: wrap; }
+    .clink {
+      display: flex; align-items: center; gap: 0.45rem;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      color: var(--text-m);
+      padding: 0.65rem 1.4rem;
+      border-radius: 50px;
+      font-size: 0.85rem; font-weight: 600;
+      text-decoration: none;
+      transition: border-color 0.2s, color 0.2s, background 0.2s;
+    }
+    .clink:hover { border-color: var(--pink-m); color: var(--pink-d); background: var(--pink-l); }
+    .clink.lav:hover { border-color: var(--lav-m); color: var(--lav-d); background: var(--lav-l); }
+
+    /* ═══════════════════════ FOOTER ═══════════════════ */
+    footer {
+      position: relative; z-index: 1;
+      text-align: center; padding: 2rem 6vw;
+      border-top: 1px solid var(--border);
+      font-size: 0.8rem; color: var(--text-l);
+    }
+    footer span { color: var(--pink-d); }
+
+    /* ═══════════════════════ RESPONSIVE ═══════════════ */
+    @media (max-width: 780px) {
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+      .mobile-nav {
+        position: fixed; top: 60px; left: 0; right: 0;
+        background: rgba(253,245,247,0.97);
+        backdrop-filter: blur(20px);
+        border-bottom: 1px solid var(--border);
+        padding: 1.5rem 6vw;
+        display: none; flex-direction: column; gap: 1rem;
+        z-index: 99;
+      }
+      .mobile-nav.open { display: flex; }
+      .mobile-nav a {
+        color: var(--text-m); text-decoration: none;
+        font-size: 1rem; font-weight: 600;
+        padding: 0.5rem 0; border-bottom: 1px solid var(--border);
+      }
+      .hero-grid { grid-template-columns: 1fr; gap: 3rem; text-align: center; }
+      .hero-visual { order: -1; }
+      .photo-outer { width: 240px; height: 290px; margin: 0 auto; }
+      .ftag { display: none; }
+      .hero-btns, .hero-stats { justify-content: center; }
+      .hero-pill { margin: 0 auto 2rem; }
+      .about-grid { grid-template-columns: 1fr; }
+      .expertise-row { grid-template-columns: 1fr; }
+      .proj-grid { grid-template-columns: 1fr; }
+      .contact-wrap { padding: 2.5rem 1.5rem; }
+      .contact-links { flex-direction: column; align-items: center; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══════════════════════ NAV ══════════════════════════ -->
+<nav id="navbar">
+  <div class="nav-logo">Zaira<span>.</span></div>
+  <ul class="nav-links">
+    <li><a href="#about">Sobre mí</a></li>
+    <li><a href="#stack">Skills</a></li>
+    <li><a href="#projects">Proyectos</a></li>
+    <li><a href="#experience">Experiencia</a></li>
+    <li><a href="#contact" class="nav-cta">Contacto</a></li>
+  </ul>
+  <div class="hamburger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+<div class="mobile-nav" id="mobileNav">
+  <a href="#about" onclick="toggleMenu()">Sobre mí</a>
+  <a href="#stack" onclick="toggleMenu()">Skills</a>
+  <a href="#projects" onclick="toggleMenu()">Proyectos</a>
+  <a href="#experience" onclick="toggleMenu()">Experiencia</a>
+  <a href="#contact" onclick="toggleMenu()">Contacto</a>
+</div>
+
+<!-- ══════════════════════ HERO ═════════════════════════ -->
+<section id="hero">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div>
+        <!-- dual identity badge -->
+        <div class="hero-pill">
+          <div class="hero-pill-side hp-left">
+            <span class="dot"></span> Marketing Digital
+          </div>
+          <div class="hp-sep"></div>
+          <div class="hero-pill-side hp-right">
+            <span class="dot"></span> Ciencia de Datos
+          </div>
+        </div>
+
+        <h1 class="hero-name">
+          Zaira Itzel
+          <span>Reyes Gutierrez</span>
+        </h1>
+        <p class="hero-role">
+          <strong>Lic. en Informática</strong> · UMAR Campus Puerto Escondido, Oaxaca
+        </p>
+
+        <!-- dual focus bar -->
+        <div class="hero-focus">
+          <div class="focus-half mk">
+            <div class="focus-tag">Mi pasión</div>
+            <div class="focus-title">Marketing - Estrategia Digital</div>
+            <p class="focus-desc">Branding, contenido, redes sociales y experiencia de usuario</p>
+          </div>
+          <div class="focus-half ds">
+            <div class="focus-tag">Mi enfoque</div>
+            <div class="focus-title">Data Science - Análisis</div>
+            <p class="focus-desc">Python, bases de datos, visualización e insights</p>
+          </div>
+        </div>
+
+        <div class="hero-btns">
+          <a href="#projects" class="btn-pk">Ver proyectos</a>
+          <a href="#contact" class="btn-out">Conectemos</a>
+        </div>
+        <div class="hero-stats">
+          <div><div class="stat-n">11</div><div class="stat-l">Proyectos</div></div>
+          <div><div class="stat-n lav">3</div><div class="stat-l">Estancias</div></div>
+          <div><div class="stat-n">5+</div><div class="stat-l">Tecnologías</div></div>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <div class="photo-outer">
+          <div class="photo-card">
+            <img src="foto-perfil.jpg" alt="Zaira Itzel Reyes Gutierrez">
+            
+          </div>
+          <div class="deco-blob blob-pk"></div>
+          <div class="deco-blob blob-lv"></div>
+          <div class="ftag t1">✦ Marketing Digital</div>
+          <div class="ftag t2">◈ Data Science</div>
+          <div class="ftag t3">⬡ Desarrollo de Software</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════ ABOUT ═════════════════════════ -->
+<section id="about">
+  <div class="wrap">
+    <div class="reveal">
+      <p class="label">Quién soy</p>
+      <h2 class="heading">Creativa con <em>datos</em>,<br>analítica con <em>corazón</em></h2>
+      <div class="divider"></div>
+    </div>
+    <div class="about-grid reveal">
+      <div class="about-img">
+        <!--
+          📸 FOTO SECUNDARIA (opcional)
+          Cambia display:none a display:block y ajusta el src
+        -->
+        <img src="foto-about.jpg" alt="Zaira Itzel">
+        <svg width="46" height="46" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1" color="var(--text-l)" style="opacity:0.3;">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+        </svg>
+        <span class="about-img-hint">📸 Foto secundaria</span>
+      </div>
+      <div class="about-body">
+        <p>
+          Soy <strong>Zaira Itzel Reyes Gutierrez</strong>, estudiante de <strong>Licenciatura en Informática</strong> 
+          en la Universidad del Mar (UMAR), Campus Puerto Escondido, Oaxaca. Combino lo técnico con lo creativo 
+          para construir soluciones.
+        </p>
+        <p>
+          Mi perfil: programo sistemas complejos y también diseño estrategias de marca. 
+          Creo firmemente que el futuro pertenece a quienes entienden tanto los <strong>datos</strong> 
+          como las <strong>personas</strong>.
+        </p>
+        <div class="expertise-row">
+          <div class="exp-card mk">
+            <div class="exp-card-title">Marketing Digital</div>
+            <p>Estrategia de contenido, branding, redes sociales y diseño web con impacto real en marcas locales.</p>
+          </div>
+          <div class="exp-card ds">
+            <div class="exp-card-title">Ciencia de Datos</div>
+            <p>Python, bases de datos relacionales, Docker y análisis de datos en entorno fintech profesional.</p>
+          </div>
+        </div>
+        <div class="about-traits">
+          <span class="trait">Creativa</span>
+          <span class="trait">Analítica</span>
+          <span class="trait">Proactiva</span>
+          <span class="trait">Orientada a resultados</span>
+          <span class="trait">Trabajo en equipo</span>
+          <span class="trait">Comunicación visual</span>
+          <span class="trait">Aprendizaje continuo</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════ STACK ═════════════════════════ -->
+<section id="stack">
+  <div class="wrap">
+    <div class="reveal">
+      <p class="label">Herramientas</p>
+      <h2 class="heading">Mi <em>stack</em> tecnológico</h2>
+      <div class="divider"></div>
+      <div class="stack-tabs">
+        <button class="tab-btn active mk" onclick="showTab('mk',this)">Marketing Digital</button>
+        <button class="tab-btn ds" onclick="showTab('ds',this)">Data Science</button>
+        <button class="tab-btn dev" onclick="showTab('dev',this)">Desarrollo de Software</button>
+      </div>
+    </div>
+    <!-- Marketing -->
+    <div class="stack-panel active reveal" id="panel-mk">
+      <div class="sk-item mk-sk"><div class="sk-icon">📱</div><div class="sk-name">Instagram</div></div>
+      <div class="sk-item mk-sk"><div class="sk-icon">🎵</div><div class="sk-name">TikTok</div></div>
+      <div class="sk-item mk-sk"><div class="sk-icon">🎨</div><div class="sk-name">Canva</div></div>
+      <div class="sk-item mk-sk"><div class="sk-icon">📷</div><div class="sk-name">Lightroom</div></div>
+      <div class="sk-item mk-sk"><div class="sk-icon">🎬</div><div class="sk-name">CapCut</div></div>
+      <div class="sk-item mk-sk"><div class="sk-icon">🔗</div><div class="sk-name">Linktree</div></div>
+      <div class="sk-item mk-sk"><div class="sk-icon">🌐</div><div class="sk-name">Diseño Web</div></div>
+      <div class="sk-item mk-sk"><div class="sk-icon">🛒</div><div class="sk-name">E-Commerce</div></div>
+    </div>
+    <!-- Data Science -->
+    <div class="stack-panel reveal" id="panel-ds">
+      <div class="sk-item ds-sk"><div class="sk-icon">🐍</div><div class="sk-name">Python</div></div>
+      <div class="sk-item ds-sk"><div class="sk-icon">🐳</div><div class="sk-name">Docker</div></div>
+      <div class="sk-item ds-sk"><div class="sk-icon">🗄️</div><div class="sk-name">SQL / SQLite</div></div>
+      <div class="sk-item ds-sk"><div class="sk-icon">🔍</div><div class="sk-name">DBeaver</div></div>
+      <div class="sk-item ds-sk"><div class="sk-icon">📊</div><div class="sk-name">Pentaho</div></div>
+      <div class="sk-item ds-sk"><div class="sk-icon">🔧</div><div class="sk-name">Bitbucket</div></div>
+      <div class="sk-item ds-sk"><div class="sk-icon">☁️</div><div class="sk-name">AWS</div></div>
+      <div class="sk-item ds-sk"><div class="sk-icon">📋</div><div class="sk-name">Scrum</div></div>
+    </div>
+    <!-- Dev -->
+    <div class="stack-panel reveal" id="panel-dev">
+      <div class="sk-item dev-sk"><div class="sk-icon">🔷</div><div class="sk-name">VB.NET</div></div>
+      <div class="sk-item dev-sk"><div class="sk-icon">☕</div><div class="sk-name">Java</div></div>
+      <div class="sk-item dev-sk"><div class="sk-icon">🖥️</div><div class="sk-name">Win. Forms</div></div>
+      <div class="sk-item dev-sk"><div class="sk-icon">☕</div><div class="sk-name">Java Swing</div></div>
+      <div class="sk-item dev-sk"><div class="sk-icon">🟦</div><div class="sk-name">JDBC</div></div>
+      <div class="sk-item dev-sk"><div class="sk-icon">📄</div><div class="sk-name">JasperReports</div></div>
+      <div class="sk-item dev-sk"><div class="sk-icon">🌐</div><div class="sk-name">HTML / CSS</div></div>
+      <div class="sk-item dev-sk"><div class="sk-icon">🎮</div><div class="sk-name">Greenfoot</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════ PROJECTS ═════════════════════ -->
+<section id="projects">
+  <div class="wrap">
+    <div class="reveal">
+      <p class="label">Evidencias académicas</p>
+      <h2 class="heading">Proyectos que <em>construí</em></h2>
+      <div class="divider"></div>
+    </div>
+
+    <div class="proj-grid">
+
+      <!-- 1 Trivia -->
+      <div class="proj-card reveal">
+        <div class="proj-img-area">
+          <div class="proj-img-layer" style="background:linear-gradient(135deg,#F9C5D1,#FAD4E0);"></div>
+          <img src="img-trivia.jpg" alt="Trivia">
+        </div>
+        <div class="proj-body">
+          <span class="proj-cat cat-pk">Videojuego · Desktop</span>
+          <h3 class="proj-title">Trivia — Juego de Preguntas por Niveles</h3>
+          <p class="proj-desc">
+Trivia es una aplicación de escritorio desarrollada en Visual Basic .NET con Windows Forms y .NET 8, diseñada para poner a prueba los conocimientos del usuario mediante preguntas de opción múltiple organizadas por niveles de dificultad. El jugador ingresa su nombre para personalizar la experiencia y avanza por tres niveles (fácil, intermedio y difícil), cada uno con preguntas progresivas, temporizador propio y un sistema de puntuación que recompensa aciertos y penaliza errores. La partida finaliza si se cometen dos errores, el puntaje llega a cero o el tiempo se agota.
+
+El proyecto se implementó de forma completamente funcional, integrando navegación fluida entre formularios, transferencia de datos y lógica de juego en tiempo real. Además de ofrecer una experiencia interactiva de entretenimiento educativo, permitió fortalecer habilidades en programación orientada a objetos, diseño de interfaces y desarrollo de aplicaciones de escritorio, beneficiando tanto a usuarios como al propio desarrollador en su formación técnica.          </p>
+          <div class="proj-tags">
+            <span class="proj-tag">VB.NET</span><span class="proj-tag">Windows Forms</span><span class="proj-tag">.NET 8</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2 Memorama -->
+      <div class="proj-card reveal">
+        <div class="proj-img-area">
+          <div class="proj-img-layer" style="background:linear-gradient(135deg,#EDE5F8,#D4C8F0);"></div>
+          <img src="img-memorama.jpg" alt="Memorama">
+        </div>
+        <div class="proj-body">
+          <span class="proj-cat cat-lv">Juego · Desktop</span>
+          <h3 class="proj-title">Memorama — Juego de Memoria con Cartas</h3>
+          <p class="proj-desc">
+Memorama es una aplicación de escritorio desarrollada en Visual Basic .NET con Windows Forms y .NET 8 que recrea el clásico juego de memoria en formato digital. Permite jugar en modo individual contra la computadora o en modo de dos jugadores, con nombres personalizados y turnos alternados. El juego cuenta con tres niveles de dificultad progresivos, donde aumenta la cantidad de cartas y pares a encontrar, incorporando un sistema de puntuación que recompensa aciertos y penaliza errores. Si un jugador falla, las cartas se ocultan nuevamente y el turno cambia; la partida puede finalizar al completar el tablero o si el puntaje de un jugador cae por debajo de cero.
+
+El proyecto se desarrolló de forma funcional, integrando distribución aleatoria de cartas, lógica de turnos y detección automática de ganador, además de un modelo orientado a objetos para las cartas. Más allá del entretenimiento, fortalece habilidades en programación orientada a objetos, manejo de eventos y desarrollo de interfaces interactivas, aportando tanto valor educativo para los usuarios como experiencia técnica para el desarrollador.          </p>
+          <div class="proj-tags">
+            <span class="proj-tag">VB.NET</span><span class="proj-tag">Windows Forms</span><span class="proj-tag">POO</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3 MiniPaint -->
+      <div class="proj-card reveal">
+        <div class="proj-img-area">
+          <div class="proj-img-layer" style="background:linear-gradient(135deg,#FFE8D6,#FFCBA0);"></div>
+          <img src="img-minipaint.jpg" alt="MiniPaint">
+        </div>
+        <div class="proj-body">
+          <span class="proj-cat cat-peach">Editor Gráfico · Desktop</span>
+          <h3 class="proj-title">MiniPaint — Aplicación de Dibujo Digital</h3>
+          <p class="proj-desc">
+MiniPaint es una aplicación de escritorio desarrollada en Visual Basic .NET con Windows Forms y GDI+, inspirada en editores clásicos como Paint. Permite crear y editar dibujos sobre un lienzo digital mediante una amplia variedad de herramientas como lápiz, pincel, figuras geométricas, borrador, relleno por inundación y texto. Además, incluye funciones de selección para copiar, cortar, pegar, rotar o eliminar áreas, junto con opciones para elegir colores, ajustar el grosor del trazo y gestionar archivos en distintos formatos de imagen. También incorpora historial de acciones para deshacer cambios y atajos de teclado para operaciones de portapapeles.
+
+El proyecto se desarrolló de forma completamente funcional, integrando múltiples herramientas, un sistema de deshacer basado en estados y un algoritmo de relleno implementado desde cero. Representa un avance significativo en complejidad, fortaleciendo habilidades en programación gráfica, manejo de eventos, estructuras de datos y manipulación de imágenes, ofreciendo una herramienta útil para usuarios y una sólida experiencia técnica para el desarrollador.          </p>
+          <div class="proj-tags">
+            <span class="proj-tag">VB.NET</span><span class="proj-tag">GDI+</span><span class="proj-tag">Windows Forms</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4 ABCEscolar -->
+      <div class="proj-card reveal">
+        <div class="proj-img-area">
+          <div class="proj-img-layer" style="background:linear-gradient(135deg,#DFF4EE,#A3D9C8);"></div>
+          <img src="img-abcescolar.jpg" alt="ABCEscolar">
+        </div>
+        <div class="proj-body">
+          <span class="proj-cat cat-mint">Sistema Escolar · Desktop</span>
+          <h3 class="proj-title">ABCEscolar — Sistema de Gestión Escolar</h3>
+          <p class="proj-desc">
+ABCEscolar es una aplicación de escritorio desarrollada en Visual Basic .NET con Windows Forms y base de datos en Microsoft Access, diseñada para gestionar la información de una institución educativa de forma centralizada. El sistema cuenta con inicio de sesión con autenticación por roles (administrador, profesor y alumno), redirigiendo a cada usuario a su panel correspondiente. El administrador puede realizar operaciones completas (CRUD) sobre alumnos, profesores y cursos, mientras que los alumnos consultan e inscriben materias y los profesores gestionan calificaciones.
+
+La aplicación integra conexión a base de datos mediante OleDb, con una arquitectura que separa la lógica de acceso a datos de la interfaz y utiliza clases orientadas a objetos para representar las entidades principales. Se logró un sistema funcional, escalable y organizado, que fortalece habilidades en programación con bases de datos, diseño de software multiusuario y desarrollo de aplicaciones con un enfoque práctico y real          </p>
+          <div class="proj-tags">
+            <span class="proj-tag">VB.NET</span><span class="proj-tag">MS Access</span><span class="proj-tag">OleDb</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 5 Reproductor MP3 -->
+      <div class="proj-card reveal">
+        <div class="proj-img-area">
+          <div class="proj-img-layer" style="background:linear-gradient(135deg,#F9C5D1,#EDE5F8);"></div>
+          <img src="img-mp3.jpg" alt="Reproductor MP3">
+        </div>
+        <div class="proj-body">
+          <span class="proj-cat cat-pk">Multimedia · Desktop</span>
+          <h3 class="proj-title">Reproductor MP3 — Música de Escritorio</h3>
+          <p class="proj-desc">
+Reproductor MP3 es una aplicación de escritorio desarrollada en Visual Basic .NET con Windows Forms que permite cargar y reproducir archivos de audio de forma sencilla e intuitiva. Las canciones se organizan automáticamente en una lista de reproducción desde la cual el usuario puede seleccionarlas y controlarlas mediante funciones de play, pausa, detener, anterior y siguiente, además de una barra de progreso interactiva y control de volumen independiente. Incluye modos de reproducción normal, repetición y aleatorio, junto con atajos de teclado para una experiencia más ágil y un diseño visual con efectos translúcidos.
+
+El proyecto se implementó de forma completamente funcional, integrando reproducción multimedia mediante Windows Media Player, sincronización en tiempo real y una interfaz interactiva. Refuerza habilidades en integración de componentes externos, manejo de eventos y desarrollo de aplicaciones multimedia, ofreciendo una herramienta útil para el usuario y una sólida experiencia técnica para el desarrollador.          </p>
+          <div class="proj-tags">
+            <span class="proj-tag">VB.NET</span><span class="proj-tag">WMPLib</span><span class="proj-tag">GDI+</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 6 Brinca Bob -->
+      <div class="proj-card reveal">
+        <div class="proj-img-area">
+          <div class="proj-img-layer" style="background:linear-gradient(135deg,#DFF4EE,#C8EDDE);"></div>
+          <img src="img-brinca.jpg" alt="Brinca Bob Brinca">
+        </div>
+        <div class="proj-body">
+          <span class="proj-cat cat-mint">Videojuego · Endless Runner</span>
+          <h3 class="proj-title">Brinca Bob Brinca — Endless Runner</h3>
+          <p class="proj-desc">
+Brinca Bob Brinca es un videojuego de tipo endless runner desarrollado en Java con Greenfoot, donde el jugador controla a un hámster que debe saltar obstáculos en movimiento a lo largo del escenario. El juego incluye un menú principal con música, instrucciones y control de audio, y presenta una mecánica progresiva en la que la dificultad aumenta conforme aparecen obstáculos con mayor frecuencia. La física del salto se simula manualmente mediante velocidad y aceleración, mientras que la detección de colisiones determina el fin de la partida o la victoria al superar el reto.
+
+El proyecto se implementó de forma completamente funcional, integrando múltiples pantallas, efectos de sonido, dificultad dinámica y una arquitectura orientada a objetos basada en herencia para reutilizar lógica entre enemigos. Refuerza habilidades en programación orientada a objetos, simulación de física y desarrollo de videojuegos interactivos, ofreciendo una experiencia entretenida para el usuario y una sólida aplicación práctica de conceptos académicos.          </p>
+          <div class="proj-tags">
+            <span class="proj-tag">Java</span><span class="proj-tag">Greenfoot</span><span class="proj-tag">POO</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 7 CinePlusZ -->
+      <div class="proj-card reveal exp-card-lav">
+        <div class="proj-img-area">
+          <div class="proj-img-layer" style="background:linear-gradient(135deg,#EDE5F8,#D4C8F0);"></div>
+          <img src="img-cineplusz.jpg" alt="CinePlusZ">
+          <div class="proj-emoji">🎬</div>
+        </div>
+        <div class="proj-body">
+          <span class="proj-cat cat-lv">Base de Datos · Desktop</span>
+          <h3 class="proj-title">CinePlusZ — Catálogo de Películas</h3>
+          <p class="proj-desc">
+CinePlusZ es una aplicación de escritorio desarrollada en Java con Swing que permite gestionar y consultar un catálogo de películas mediante una base de datos SQLite creada automáticamente al iniciar. El sistema almacena información detallada de cada película —como título, año, sinopsis, géneros, países y presupuesto— aplicando validaciones y relaciones entre tablas para garantizar la integridad de los datos. Desde su interfaz gráfica, el usuario puede realizar operaciones completas (CRUD), visualizar pósters y ejecutar consultas con filtros combinables, todo mediante una navegación intuitiva con atajos de teclado.
+
+El proyecto se implementó de forma completamente funcional bajo una arquitectura en capas, integrando acceso a datos con JDBC, manejo de excepciones y una interfaz robusta. Representa un desarrollo de nivel profesional que consolida habilidades en programación orientada a objetos, bases de datos relacionales y diseño de software estructurado, ofreciendo una herramienta útil y una sólida experiencia técnica.          </p>
+          <div class="proj-tags">
+            <span class="proj-tag">Java</span><span class="proj-tag">SQLite</span><span class="proj-tag">JDBC</span><span class="proj-tag">Swing</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 8 Const360 -->
+      <div class="proj-card reveal exp-card-lav">
+        <div class="proj-img-area">
+          <div class="proj-img-layer" style="background:linear-gradient(135deg,#C5B0E8,#DDD4F5);"></div>
+          <img src="img-const360.jpg" alt="Const360">
+          <div class="proj-emoji">📋</div>
+        </div>
+        <div class="proj-body">
+          <span class="proj-cat cat-lv">Sistema Empresarial · Equipo</span>
+          <h3 class="proj-title">Const360 — Gestión Académica Institucional</h3>
+          <p class="proj-desc">
+Const360 es un sistema de escritorio desarrollado en Java con Swing que permite gestionar y dar seguimiento a las actividades académicas de profesores mediante una base de datos SQLite creada automáticamente. El sistema maneja múltiples tipos de actividades —como conferencias, cursos, tesis y proyectos— con información detallada y soporte para archivos adjuntos, diferenciando el acceso entre profesor y superusuario. Además, permite generar reportes en PDF de forma automática utilizando JasperReports, facilitando la consulta y análisis de la información.
+
+Implementado bajo una arquitectura en capas y desarrollado en equipo, el sistema es completamente funcional e integra operaciones CRUD, control de usuarios, manejo de excepciones y documentación técnica completa. Representa un proyecto de nivel profesional que consolida habilidades en desarrollo colaborativo, bases de datos, generación de reportes y diseño de software estructurado, ofreciendo una solución real para instituciones educativas.          </p>
+          <div class="proj-tags">
+            <span class="proj-tag">Java</span><span class="proj-tag">SQLite</span><span class="proj-tag">JasperReports</span><span class="proj-tag">Scrum</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════ EXPERIENCE ═══════════════════ -->
+<section id="experience">
+  <div class="wrap">
+    <div class="reveal">
+      <p class="label">Trayectoria profesional</p>
+      <h2 class="heading">Donde la teoría se vuelve <em>práctica</em></h2>
+      <div class="divider"></div>
+    </div>
+    <div class="exp-timeline reveal">
+
+      <!-- Kubo -->
+      <div class="tl-item">
+        <div class="tl-dot dot-lv"></div>
+        <div class="tl-card lav">
+          <div class="tl-period period-lv">2ª Estancia Profesional · 2025–2026</div>
+          <div class="tl-role">Practicante — Equipo de Data</div>
+          <div class="tl-org">Kubo Financiero · Fintech · Modalidad Remota</div>
+          <div class="tl-desc">
+            Realicé mi segunda estancia profesional en <strong>Kubo Financiero</strong>, integrándome al <strong>equipo de Data</strong> en modalidad remota. Participé en el desarrollo de un módulo en <strong>Python</strong> para la generación de cadenas en formato INTF, utilizando <strong>bases de datos relacionales</strong> a través de DBeaver y contenedores <strong>Docker</strong>. Colaboré bajo <strong>metodología Scrum</strong>, rotando el rol de líder semanalmente, lo que me permitió fortalecer habilidades de coordinación y toma de decisiones, incluyendo la propuesta de un <strong>diagrama de clases</strong> para estandarizar el proyecto.
+            <br><br>
+            También participé en una investigación sobre migración de infraestructura a <strong>AWS</strong>, aportando análisis al equipo. Esta experiencia me permitió consolidar conocimientos en bases de datos y programación en Python, así como desarrollar habilidades de <strong>trabajo remoto, comunicación y autogestión</strong> en un entorno profesional con ingenieros de datos, ampliando mi perspectiva en el área de desarrollo e ingeniería de datos.
+          </div>
+          <div class="tl-techs">
+            <span class="tl-tech tech-lv">Python</span>
+            <span class="tl-tech tech-lv">Docker</span>
+            <span class="tl-tech tech-lv">DBeaver</span>
+            <span class="tl-tech tech-lv">Bitbucket</span>
+            <span class="tl-tech tech-lv">Scrum</span>
+            <span class="tl-tech tech-lv">AWS</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Fusión Creativa -->
+      <div class="tl-item">
+        <div class="tl-dot dot-pk"></div>
+        <div class="tl-card">
+          <div class="tl-period period-pk">1ª Estancia Profesional · 2024</div>
+          <div class="tl-role">Practicante — Marketing Digital y Diseño Web</div>
+          <div class="tl-org">Fusión Creativa · Agencia de Publicidad con +20 años · Oaxaca</div>
+         <div class="tl-desc">
+            Realicé mi estancia profesional en <strong>Fusión Creativa</strong>, donde participé en el área de <strong>marketing digital y diseño web</strong> colaborando en proyectos reales para diversas marcas. Durante este periodo, desarrollé <strong>contenido fotográfico y audiovisual</strong>, elaboré parrillas de contenido para redes sociales y participé en la creación de propuestas de identidad de marca, destacando mi contribución en la conceptualización para el restaurante <strong>Pitiona</strong>, la cual fue aprobada por el cliente. Asimismo, colaboré en el desarrollo de <strong>componentes web interactivos</strong>, integrando criterios de diseño y funcionalidad.
+            <br><br>
+            Esta experiencia me permitió aplicar mis conocimientos en un entorno profesional, fortaleciendo mis habilidades en <strong>estrategia digital, branding, producción de contenido y desarrollo web</strong>. Además, consolidé una visión integral del trabajo en agencia, generando aportaciones concretas y relevantes para los proyectos en los que participé, lo que representó un avance significativo en mi formación y proyección profesional.
+          </div>
+          <div class="tl-techs">
+            <span class="tl-tech tech-pk">Marketing Digital</span>
+            <span class="tl-tech tech-pk">Branding</span>
+            <span class="tl-tech tech-pk">Diseño Web</span>
+            <span class="tl-tech tech-pk">Fotografía</span>
+            <span class="tl-tech tech-pk">E-Commerce</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Servicio Social -->
+      <div class="tl-item">
+        <div class="tl-dot dot-pk"></div>
+        <div class="tl-card">
+          <div class="tl-period period-pk">Servicio Social · 2024</div>
+          <div class="tl-role">Estrategia Digital e Identidad Institucional</div>
+          <div class="tl-org">Universidad del Mar (UMAR) · Campus Puerto Escondido</div>
+         <div class="tl-desc">
+            Realicé mi servicio social en la <strong>Universidad del Mar (UMAR), Campus Puerto Escondido</strong>, enfocado en la <strong>estrategia digital y promoción institucional</strong> de la carrera de Informática/ITC. Desarrollé y gestioné redes sociales en <strong>Instagram, TikTok y Facebook</strong>, además de implementar un <strong>Linktree institucional</strong> para centralizar el acceso a las plataformas. Produje contenido audiovisual, incluyendo fotografía, video y material gráfico, así como parrillas de contenido para la difusión de eventos y actividades académicas.
+            <br><br>
+            Participé en la construcción de la identidad de la nueva carrera ITC mediante convocatorias para elementos visuales y generé material fotográfico que fue utilizado como <strong>folleto oficial</strong> de la institución. Esta experiencia me permitió fortalecer habilidades en <strong>diseño gráfico, edición de video, fotografía y gestión de redes sociales</strong>, dejando una infraestructura digital funcional y una estrategia de contenido activa para la comunidad académica.
+          </div>
+          <div class="tl-techs">
+            <span class="tl-tech tech-pk">Instagram</span>
+            <span class="tl-tech tech-pk">TikTok</span>
+            <span class="tl-tech tech-mt">Canva</span>
+            <span class="tl-tech tech-mt">Lightroom</span>
+            <span class="tl-tech tech-mt">CapCut</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════ CONTACT ═══════════════════════ -->
+<section id="contact">
+  <div class="wrap">
+    <div class="contact-wrap reveal">
+      <h2>¿Trabajamos <em>juntos</em>?</h2>
+      <p>Estoy abierta a oportunidades en marketing digital, análisis de datos o desarrollo de software. ¡Escríbeme!</p>
+      <div class="contact-links">
+        <a href="mailto:zaira.reyes.gtz@gmail.com" class="clink">
+          <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+          </svg>
+          Correo electrónico
+        </a>
+        <a href="https://www.linkedin.com/in/zaira-itzel-reyes-gutierrez-495004398/" target="_blank" class="clink lav">
+          <!-- ✏️ Cambia tu LinkedIn -->
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+          </svg>
+          LinkedIn
+        </a>
+        <a href="https://github.com/ZairaRG" target="_blank" class="clink">
+          <!-- ✏️ Cambia tu GitHub -->
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/>
+          </svg>
+          GitHub
+        </a>
+        <a href="https://instagram.com/zaira_grz" target="_blank" class="clink">
+          <!-- ✏️ Cambia tu Instagram -->
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M7.75 2C4.574 2 2 4.574 2 7.75v8.5C2 19.426 4.574 22 7.75 22h8.5C19.426 22 22 19.426 22 16.25v-8.5C22 4.574 19.426 2 16.25 2h-8.5zm0 2h8.5A3.75 3.75 0 0120 7.75v8.5A3.75 3.75 0 0116.25 20h-8.5A3.75 3.75 0 014 16.25v-8.5A3.75 3.75 0 017.75 4zm4.25 2.5a5.25 5.25 0 100 10.5 5.25 5.25 0 000-10.5zm0 2a3.25 3.25 0 110 6.5 3.25 3.25 0 010-6.5zm5.25-.75a1.25 1.25 0 100 2.5 1.25 1.25 0 000-2.5z"/>
+          </svg>
+          Instagram
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════ FOOTER ════════════════════════ -->
+<footer>
+  <p>© 2026 <span>Zaira Itzel Reyes Gutierrez</span> · Licenciatura en Informática · UMAR Campus Puerto Escondido</p>
+</footer>
+
+<script>
+  function toggleMenu() {
+    document.getElementById('mobileNav').classList.toggle('open');
+  }
+
+  // stack tabs
+  function showTab(id, btn) {
+    document.querySelectorAll('.stack-panel').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(b => { b.classList.remove('active','mk','ds','dev'); });
+    document.getElementById('panel-' + id).classList.add('active');
+    btn.classList.add('active', id);
+  }
+
+  // scroll reveal
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const siblings = entry.target.parentElement.querySelectorAll('.reveal');
+        let delay = 0;
+        siblings.forEach((s, i) => { if(s === entry.target) delay = i * 80; });
+        setTimeout(() => entry.target.classList.add('on'), delay);
+        obs.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.07, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+  // nav shrink
+  window.addEventListener('scroll', () => {
+    const nav = document.getElementById('navbar');
+    nav.style.padding = window.scrollY > 60 ? '0.6rem 6vw' : '1.1rem 6vw';
+  });
+
+  // active nav
+  const secs = document.querySelectorAll('section[id]');
+  const links = document.querySelectorAll('.nav-links a');
+  window.addEventListener('scroll', () => {
+    let cur = '';
+    secs.forEach(s => { if(window.scrollY >= s.offsetTop - 120) cur = s.id; });
+    links.forEach(l => l.style.color = l.getAttribute('href') === '#' + cur ? 'var(--pink-d)' : '');
+  });
+</script>
+</body>
+</html>
